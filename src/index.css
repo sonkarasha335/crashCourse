@@ -61,7 +61,7 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
     /*background-color : lightgreen;
-  }
+  }/*
   a:hover {
     color: #747bff;
   }
@@ -70,7 +70,11 @@ button:focus-visible {
   }
 }*/
 body{
-  background-color: lightblue;
+  /*background-color: lightblue;*/
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  /*background-color: #242424;*/
+  background-color: #34036c;
   margin:0;
  /* text-align : center;
   /*color :rgb(167, 60, 83);*/

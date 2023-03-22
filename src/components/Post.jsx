@@ -1,8 +1,9 @@
 import classes from './Post.module.css';
+import { Link } from 'react-router-dom';
 
 //const names = ['Asha','Sonkar'];
 
-function Post({ author, body}){
+function Post({ id, author, body}){
    // const choseName = Math.random()> 0.5 ? names[0] : names[1];
     return (
        /* <div>
@@ -11,8 +12,10 @@ function Post({ author, body}){
         </div>*/
 
         <li className={classes.post}> 
+        <Link to={id}>
             <p className={classes.author}>{ author}</p>
             <p className={classes.text}>{ body}</p>
+        </Link>
         </li>
     );
 }

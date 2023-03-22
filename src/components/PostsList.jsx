@@ -1,45 +1,49 @@
-import { useState } from 'react';
+//import { useState, useEffect } from 'react';
 
 import Post from './Post';
-import NewPost from './NewPost';
-import Modal from './Modal';
 import classes from './PostsList.module.css';
+//import { useLoaderData } from './react-router-dom';
+/*import NewPost from './NewPost';
+import Modal from './Modal';
+//import classes from './PostsList.module.css';*/
 
-function PostsList({isPosting, onStopPosting}){
-    
-    const [enteredBody , setEnteredBody] = useState('');
-    const [enteredAuthor, setEnteredAuthor] = useState('');
+function PostsList(){
+    const posts = useLoaderData();
+    /*const [posts, setPosts] = useState([]);
+    const [isFatching, setIsFatching]= useState();
 
-    
+    useEffect(() => {
+        async function fetchPosts(){
+            setIsFatching(true);
+            setPosts(resData.posts);
+            setIsFatching(false);
+        }
 
-    function bodyChangeHandler(event){
-        setEnteredBody(event.target.value);
-    }
-    function authorChangeHandler(event){
-        setEnteredAuthor(event.target.value);
-    }
-   /* if (modalIsVisible){
-        modalContent = (
-            <Modal onClose={hideModelHandler}>
-                <NewPost onBodyChange={ bodyChangeHandler} onAuthorChange={ authorChangeHandler} />
-            </Modal>
-        );
+        fetchPosts();
+    }, []);*/
+
+    /*function addPostHandler(postData){
+       
+       /* setPosts((existingPosts) => [postData, ...existingPosts]);
     }*/
+    
     return (
         <>
-            { isPosting && (
-                <Modal onClose={onStopPosting}>
-                    <NewPost
-                        onBodyChange={ bodyChangeHandler} 
-                        onAuthorChange={ authorChangeHandler}
-                        onCancel={onStopPosting} />
-                </Modal>
-            )}
-           
-            <ul className={classes.posts}>
-                <Post author={enteredAuthor} body={enteredBody} />
-                <Post  author="Rahul" body="He is java Developer"/>
+           {posts.length > 0 && (
+             <ul className={classes.posts}>
+                {posts.map((post) => (
+                <Post key={post.id} id={post.id} author={post.author} body={post.body} />))}
             </ul>
+           )}
+           {posts.length === 0  &&(
+            <div style={{textAlign: 'center', color:'white' }}>
+                <h2>There are no posts yet.</h2>
+                <p>Start adding Some!</p>
+            </div>
+           ) }
+           {/* {isFatching && <div style={{textAlign: 'center', color:'white'}}>
+                <p>Loading post.....</p>
+            </div>} */}
         </>
     );
 }

@@ -1,14 +1,15 @@
+
 //import { useState, useEffect } from 'react';
 
 import Post from './Post';
 import classes from './PostsList.module.css';
-//import { useLoaderData } from './react-router-dom';
-/*import NewPost from './NewPost';
-import Modal from './Modal';
-//import classes from './PostsList.module.css';*/
+import { useLoaderData } from 'react-router-dom';
+//import NewPost from './NewPost';
+//import Modal from './Modal';
+//import classes from './PostsList.module.css';
 
 function PostsList(){
-    const posts = useLoaderData();
+   const posts = useLoaderData();
     /*const [posts, setPosts] = useState([]);
     const [isFatching, setIsFatching]= useState();
 

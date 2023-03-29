@@ -1,5 +1,7 @@
 import classes from './Post.module.css';
-import { Link } from 'react-router-dom';
+import { Link, Form } from 'react-router-dom';
+//import { MdPostAdd, MdMessage } from 'react-icons/md
+import { AiTwotoneEdit } from "react-icons/ai";
 
 //const names = ['Asha','Sonkar'];
 
@@ -16,6 +18,15 @@ function Post({ id, author, body}){
             <p className={classes.author}>{ author}</p>
             <p className={classes.text}>{ body}</p>
         </Link>
+        <Form method="post" className={classes.form}>
+        <p>
+        <Link to="/edit-post" className={classes.button} >
+          <AiTwotoneEdit size={18} />
+          Update
+        </Link>
+      </p>
+     </Form>
+
         </li>
     );
 }

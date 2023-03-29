@@ -14,6 +14,7 @@ function Modal({children }){
             <dialog open className={classes.modal}>
                 { children}
             </dialog>
+        
     
         </>
     );
